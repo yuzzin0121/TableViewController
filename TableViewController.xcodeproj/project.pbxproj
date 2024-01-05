@@ -14,6 +14,8 @@
 		611F149E2B48025900B983F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611F149C2B48025900B983F1 /* LaunchScreen.storyboard */; };
 		619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */; };
 		619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */; };
+		619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */; };
+		619BE0522B480D5600EEB169 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		611F149F2B48025900B983F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +70,8 @@
 				611F149F2B48025900B983F1 /* Info.plist */,
 				619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */,
 				619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */,
+				619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */,
+				619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -142,8 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */,
+				619BE0522B480D5600EEB169 /* ShoppingTableViewCell.swift in Sources */,
 				611F14922B48025700B983F1 /* AppDelegate.swift in Sources */,
 				619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */,
+				619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */,
 				611F14942B48025700B983F1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
