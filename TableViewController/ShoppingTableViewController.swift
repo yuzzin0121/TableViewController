@@ -22,16 +22,25 @@ class ShoppingTableViewController: UITableViewController {
         designButton(addButton, title: "추가")
     }
     
-    // TODO: - 예외 처리
     @IBAction func shopTodoTextFieldDidReturn(_ sender: UITextField) {
-        shoppingTodoList.append(shopTodoTextField.text!)
+        let todo = shopTodoTextField.text!
+        if todo == "" {   // 공백일 경우 추가 X
+            return
+        }
+        let trimTodo = todo.trimmingCharacters(in: [" "])
+        
+        shoppingTodoList.append(trimTodo)
         tableView.reloadData()
         shopTodoTextField.text = ""
     }
     
-    // TODO: - 예외 처리
     @IBAction func addButtonClicked(_ sender: UIButton) {
-        shoppingTodoList.append(shopTodoTextField.text!)
+        let todo = shopTodoTextField.text!
+        if todo == "" {   // 공백일 경우 추가 X
+            return
+        }
+        let trimTodo = todo.trimmingCharacters(in: [" "])
+        shoppingTodoList.append(trimTodo)
         tableView.reloadData()
         shopTodoTextField.text = ""
     }
