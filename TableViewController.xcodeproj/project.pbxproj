@@ -16,6 +16,7 @@
 		619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */; };
 		619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */; };
 		619BE0522B480D5600EEB169 /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */; };
+		61D925182B4C1C56002A16B4 /* ShoppingTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D925172B4C1C56002A16B4 /* ShoppingTodo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
 		619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		61D925172B4C1C56002A16B4 /* ShoppingTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTodo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		611F14902B48025700B983F1 /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61D925162B4C1BE6002A16B4 /* Model */,
 				611F14912B48025700B983F1 /* AppDelegate.swift */,
 				611F14932B48025700B983F1 /* SceneDelegate.swift */,
 				611F14972B48025700B983F1 /* Main.storyboard */,
@@ -74,6 +77,14 @@
 				619BE0512B480D5600EEB169 /* ShoppingTableViewCell.swift */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		61D925162B4C1BE6002A16B4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				61D925172B4C1C56002A16B4 /* ShoppingTodo.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61D925182B4C1C56002A16B4 /* ShoppingTodo.swift in Sources */,
 				619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */,
 				619BE0522B480D5600EEB169 /* ShoppingTableViewCell.swift in Sources */,
 				611F14922B48025700B983F1 /* AppDelegate.swift in Sources */,
