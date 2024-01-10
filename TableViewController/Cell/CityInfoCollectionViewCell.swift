@@ -8,7 +8,9 @@
 import UIKit
 import Kingfisher
 
-class CityInfoCollectionViewCell: UICollectionViewCell {
+class CityInfoCollectionViewCell: UICollectionViewCell, TableViewCellProtocol {
+    static var identifier: String = "CityInfoCollectionViewCell"
+    
     @IBOutlet weak var cityImageView: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var cityEnglishNameLabel: UILabel!
@@ -28,7 +30,9 @@ class CityInfoCollectionViewCell: UICollectionViewCell {
         cityImageView.layer.cornerRadius = cityImageView.frame.height / 2
     }
     
-    func setData(cityInfo: City) {
+    func configureCell(item: Any) {
+        let cityInfo = item as! City
+        
         cityImageView.kf.setImage(with: cityInfo.cityImageUrl, placeholder: UIImage(named: "sunrise"))
         cityNameLabel.text = cityInfo.city_name
         cityEnglishNameLabel.text = cityInfo.city_english_name

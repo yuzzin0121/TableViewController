@@ -25,9 +25,9 @@ class ShoppingTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        designBackgroundView(textFieldBackgroundView)
-        designTextField(shopTodoTextField, placeHolder: "무엇을 구매하실 건가요?")
-        designButton(addButton, title: "추가")
+        textFieldBackgroundView.designBackgroundView(cornerRadius: 8)
+        shopTodoTextField.designTextField(placeHolder: "무엇을 구매하실 건가요?")
+        addButton.designButton(title: "추가", cornerRadius: 10)
         
         tableView.rowHeight = 80
     }
@@ -55,26 +55,6 @@ class ShoppingTableViewController: UITableViewController {
         shopTodoTextField.text = ""
     }
     
-    func designBackgroundView(_ view: UIView) {
-        view.backgroundColor = .systemGray6
-        view.clipsToBounds = true
-        view.layer.cornerRadius = 8
-    }
-    
-    func designTextField(_ textField: UITextField, placeHolder: String) {
-        textField.backgroundColor = .systemGray6
-        textField.placeholder = placeHolder
-        textField.layer.borderColor = UIColor.clear.cgColor
-        textField.layer.borderWidth = 0
-    }
-    
-    func designButton(_ button: UIButton, title: String) {
-        button.backgroundColor = .systemGray5
-        button.setTitle(title, for: .normal)
-        button.setTitleColor(.black, for: .normal)
-        button.clipsToBounds = true
-        button.layer.cornerRadius = 10
-    }
     
     @objc
     func checkButtonClicked(sender: UIButton) {
@@ -93,24 +73,9 @@ class ShoppingTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ShoppingTableViewCell", for: indexPath) as! ShoppingTableViewCell // type casting
+        let cell = tableView.dequeueReusableCell(withIdentifier: ShoppingTableViewCell.identifier, for: indexPath) as! ShoppingTableViewCell // type casting
         
-        // 배경 디자인
-        cell.cellBackgroundView?.backgroundColor = .systemGray6
-        cell.cellBackgroundView?.clipsToBounds = true
-        cell.cellBackgroundView?.layer.cornerRadius = 8
-        
-        // 체크박스 이미지 설정
-        let checkImage = !shoppingTodos[indexPath.row].isChecked ? "checkmark.square" :"checkmark.square.fill"
-        cell.checkButton.setImage(UIImage(systemName: checkImage), for: .normal)
-        
-        cell.checkButton.tintColor = .black
-        cell.shopTodoLabel.text = shoppingTodos[indexPath.row].todo
-        cell.shopTodoLabel.font = .systemFont(ofSize: 14)
-        
-        let starImage = !shoppingTodos[indexPath.row].isBookmarked ? "star" : "star.fill"
-        cell.starButton.setImage(UIImage(systemName: starImage), for: .normal)
-        cell.starButton.tintColor = .black
+        cell.configureCell(item: shoppingTodos[indexPath.row])
         
         cell.checkButton.tag = indexPath.row
         cell.checkButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
@@ -119,10 +84,6 @@ class ShoppingTableViewController: UITableViewController {
         
         return cell
     }
-
-//    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return 50
-//    }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return true

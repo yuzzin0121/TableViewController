@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MagazineTableViewCell: UITableViewCell {
+class MagazineTableViewCell: UITableViewCell, TableViewCellProtocol{
+    static var identifier: String = "MagazineTableViewCell"
+    
     @IBOutlet weak var photoImageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     
@@ -15,4 +17,16 @@ class MagazineTableViewCell: UITableViewCell {
     
     @IBOutlet weak var dateLabel: UILabel!
     
+    func configureCell(item: Any) {
+        let magazine = item as! Magazine
+        
+        photoImageView.clipsToBounds = true
+        photoImageView.layer.cornerRadius = 10
+        
+        titleLabel.text = magazine.title
+        subtitleLabel.text = magazine.subtitle
+        photoImageView.kf.setImage(with: magazine.imageUrl, placeholder: UIImage(named: "sunrise"))
+        
+        dateLabel.text = magazine.dateString
+    }
 }

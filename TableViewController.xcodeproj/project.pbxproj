@@ -20,6 +20,11 @@
 		61A7B9332B4DA26F00795B49 /* CityInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B9312B4DA26F00795B49 /* CityInfoCollectionViewCell.swift */; };
 		61A7B9342B4DA26F00795B49 /* CityInfoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 61A7B9322B4DA26F00795B49 /* CityInfoCollectionViewCell.xib */; };
 		61A7B9362B4DA72300795B49 /* CityInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B9352B4DA72300795B49 /* CityInfoViewController.swift */; };
+		61A7B9392B4EEB3000795B49 /* TableViewCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B9382B4EEB3000795B49 /* TableViewCellProtocol.swift */; };
+		61A7B93E2B4EED8D00795B49 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B93D2B4EED8D00795B49 /* UIButton+Extension.swift */; };
+		61A7B9402B4EEE3900795B49 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B93F2B4EEE3900795B49 /* UITextField+Extension.swift */; };
+		61A7B9422B4EEEAD00795B49 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B9412B4EEEAD00795B49 /* UIView+Extension.swift */; };
+		61A7B9462B4EF24E00795B49 /* CollectionViewLayoutProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61A7B9452B4EF24E00795B49 /* CollectionViewLayoutProtocol.swift */; };
 		61D925182B4C1C56002A16B4 /* ShoppingTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D925172B4C1C56002A16B4 /* ShoppingTodo.swift */; };
 		61D9251B2B4C2102002A16B4 /* Magazine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61D9251A2B4C2102002A16B4 /* Magazine.swift */; };
 		61D9251E2B4C21F2002A16B4 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 61D9251D2B4C21F2002A16B4 /* Kingfisher */; };
@@ -43,6 +48,11 @@
 		61A7B9312B4DA26F00795B49 /* CityInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		61A7B9322B4DA26F00795B49 /* CityInfoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CityInfoCollectionViewCell.xib; sourceTree = "<group>"; };
 		61A7B9352B4DA72300795B49 /* CityInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityInfoViewController.swift; sourceTree = "<group>"; };
+		61A7B9382B4EEB3000795B49 /* TableViewCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCellProtocol.swift; sourceTree = "<group>"; };
+		61A7B93D2B4EED8D00795B49 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		61A7B93F2B4EEE3900795B49 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		61A7B9412B4EEEAD00795B49 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		61A7B9452B4EF24E00795B49 /* CollectionViewLayoutProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutProtocol.swift; sourceTree = "<group>"; };
 		61D925172B4C1C56002A16B4 /* ShoppingTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTodo.swift; sourceTree = "<group>"; };
 		61D9251A2B4C2102002A16B4 /* Magazine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Magazine.swift; sourceTree = "<group>"; };
 		61D9251F2B4C22AB002A16B4 /* MagazineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MagazineTableViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +90,8 @@
 		611F14902B48025700B983F1 /* TableViewController */ = {
 			isa = PBXGroup;
 			children = (
+				61A7B93C2B4EECA700795B49 /* Extension */,
+				61A7B9372B4EEAD800795B49 /* Protocol */,
 				61D925162B4C1BE6002A16B4 /* Model */,
 				61D925212B4C24B0002A16B4 /* Cell */,
 				611F14912B48025700B983F1 /* AppDelegate.swift */,
@@ -94,6 +106,25 @@
 				61A7B9352B4DA72300795B49 /* CityInfoViewController.swift */,
 			);
 			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		61A7B9372B4EEAD800795B49 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				61A7B9382B4EEB3000795B49 /* TableViewCellProtocol.swift */,
+				61A7B9452B4EF24E00795B49 /* CollectionViewLayoutProtocol.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		61A7B93C2B4EECA700795B49 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				61A7B93D2B4EED8D00795B49 /* UIButton+Extension.swift */,
+				61A7B93F2B4EEE3900795B49 /* UITextField+Extension.swift */,
+				61A7B9412B4EEEAD00795B49 /* UIView+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		61D925162B4C1BE6002A16B4 /* Model */ = {
@@ -196,19 +227,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				61A7B9462B4EF24E00795B49 /* CollectionViewLayoutProtocol.swift in Sources */,
 				61D925182B4C1C56002A16B4 /* ShoppingTodo.swift in Sources */,
 				61D925232B4C24E1002A16B4 /* MagazineTableViewCell.swift in Sources */,
 				619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */,
 				619BE0522B480D5600EEB169 /* ShoppingTableViewCell.swift in Sources */,
 				61D925202B4C22AB002A16B4 /* MagazineTableViewController.swift in Sources */,
+				61A7B93E2B4EED8D00795B49 /* UIButton+Extension.swift in Sources */,
 				611F14922B48025700B983F1 /* AppDelegate.swift in Sources */,
 				619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */,
+				61A7B9392B4EEB3000795B49 /* TableViewCellProtocol.swift in Sources */,
 				61A7B9302B4DA17900795B49 /* City.swift in Sources */,
 				61D9251B2B4C2102002A16B4 /* Magazine.swift in Sources */,
+				61A7B9422B4EEEAD00795B49 /* UIView+Extension.swift in Sources */,
 				619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */,
 				61A7B9362B4DA72300795B49 /* CityInfoViewController.swift in Sources */,
 				61A7B9332B4DA26F00795B49 /* CityInfoCollectionViewCell.swift in Sources */,
 				611F14942B48025700B983F1 /* SceneDelegate.swift in Sources */,
+				61A7B9402B4EEE3900795B49 /* UITextField+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

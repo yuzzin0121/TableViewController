@@ -7,7 +7,8 @@
 
 import UIKit
 
-class CityInfoViewController: UIViewController {
+class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
+    
     let cityList: [City] = [
         City(city_name: "방콕", city_english_name: "Bangkok", city_explain: "방콕, 파타야, 후아힌, 코사멧, 코사무이", city_image: "https://i.namu.wiki/i/OUKHuXT-QXe-wDgGE_9hMfEW9Sb3lyMWl0SSbpTQyfl0Lw3rs_A_DuVyXBNXTFG3FUkfmy7hBjL68dgLzssEQg.webp", domestic_travel: false),
         City(city_name: "오사카", city_english_name: "Osaka", city_explain: "오사카, 교토, 고베, 나라", city_image: "https://i.namu.wiki/i/IyejHd9WlEd118tJq1coTwS4RpkaqIY0JhPbbiVX6WWpkkoWbLK-R4DkPg8GN4cLvm0RmhWuBTrY7HymFxoUhFY48GKKxnmzsXNu7VZBO2x1y9wsOizxOxb0ngLmTqjQeZVd4pgySwBDqRvoc9LYsw.webp", domestic_travel: false),
@@ -35,8 +36,8 @@ class CityInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let xib = UINib(nibName: "CityInfoCollectionViewCell", bundle: nil)
-        collectionView.register(xib, forCellWithReuseIdentifier: "CityInfoCollectionViewCell")
+        let xib = UINib(nibName: CityInfoCollectionViewCell.identifier, bundle: nil)
+        collectionView.register(xib, forCellWithReuseIdentifier: CityInfoCollectionViewCell.identifier)
 
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -44,6 +45,10 @@ class CityInfoViewController: UIViewController {
         domesticList = getList(isDomestic: true)
         noDomesticList = getList(isDomestic: false)
         
+        setCollectionViewFlowLayout()
+    }
+    
+    func setCollectionViewFlowLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 24
         
@@ -56,7 +61,6 @@ class CityInfoViewController: UIViewController {
         layout.scrollDirection = .vertical
         
         collectionView.collectionViewLayout = layout
-       
     }
 
     func getList(isDomestic: Bool) -> [City]{
@@ -89,18 +93,18 @@ extension CityInfoViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CityInfoCollectionViewCell", for: indexPath) as! CityInfoCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityInfoCollectionViewCell.identifier, for: indexPath) as! CityInfoCollectionViewCell
         
         
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            cell.setData(cityInfo: cityList[indexPath.row])
+            cell.configureCell(item: cityList[indexPath.row])
         case 1:
-            cell.setData(cityInfo: domesticList[indexPath.row])
+            cell.configureCell(item: domesticList[indexPath.row])
         case 2:
-            cell.setData(cityInfo: noDomesticList[indexPath.row])
+            cell.configureCell(item: noDomesticList[indexPath.row])
         default:
-            cell.setData(cityInfo: cityList[indexPath.row])
+            cell.configureCell(item: cityList[indexPath.row])
         }
         
         

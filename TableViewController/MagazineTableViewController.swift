@@ -40,16 +40,9 @@ class MagazineTableViewController: UITableViewController {
     }
   
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MagazineTableViewCell", for: indexPath) as! MagazineTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: MagazineTableViewCell.identifier, for: indexPath) as! MagazineTableViewCell
         
-        cell.photoImageView.clipsToBounds = true
-        cell.photoImageView.layer.cornerRadius = 10
-        
-        cell.titleLabel.text = magazineList[indexPath.row].title
-        cell.subtitleLabel.text = magazineList[indexPath.row].subtitle
-        cell.photoImageView.kf.setImage(with: magazineList[indexPath.row].imageUrl, placeholder: UIImage(named: "sunrise"))
-        
-        cell.dateLabel.text = magazineList[indexPath.row].dateString
+        cell.configureCell(item: magazineList[indexPath.row])
         
         return cell
     }
