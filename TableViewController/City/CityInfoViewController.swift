@@ -112,4 +112,12 @@ extension CityInfoViewController: UICollectionViewDelegate, UICollectionViewData
     }
     
     
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let mainSB = UIStoryboard(name: "Main", bundle: nil)
+        
+        let TravelVC = mainSB.instantiateViewController(withIdentifier: "TravelViewController")
+        
+        self.navigationController?.pushViewController(TravelVC, animated: true)
+    }
 }

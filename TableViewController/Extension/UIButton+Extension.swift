@@ -9,9 +9,10 @@ import Foundation
 import UIKit
 
 extension UIButton {
-    func designButton(title: String, titleColor: UIColor = .black, cornerRadius: CGFloat = 0) {
+    func designButton(title: String="", image: UIImage?=nil, titleColor: UIColor = .black, cornerRadius: CGFloat = 0) {
         self.backgroundColor = .systemGray5
         self.setTitle(title, for: .normal)
+        self.setImage(image, for: .normal)
         self.setTitleColor(titleColor, for: .normal)
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius
