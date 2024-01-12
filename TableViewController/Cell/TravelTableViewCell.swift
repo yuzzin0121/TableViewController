@@ -33,9 +33,8 @@ class TravelTableViewCell: UITableViewCell, TableViewCellProtocol {
         
         for star in starImageViews {
             star.contentMode = .scaleAspectFit
-            star.image = UIImage(systemName: "star")
-            star.tintColor = .yellow
-            star.isHidden = true
+            star.image = UIImage(systemName: "star.fill")
+            star.tintColor = .systemGray6
         }
     }
     
@@ -82,13 +81,13 @@ class TravelTableViewCell: UITableViewCell, TableViewCellProtocol {
         }
         
         for index in 0...fillStarCount - 1 {
-            starImageViews[index].isHidden = false
             starImageViews[index].image = UIImage(systemName: "star.fill")
+            starImageViews[index].tintColor = .yellow
         }
         
         if let halfImage {
-            starImageViews[fillStarCount].isHidden = false
             starImageViews[fillStarCount].image = halfImage
+            starImageViews[fillStarCount].tintColor = .yellow
         }
     }
 }
