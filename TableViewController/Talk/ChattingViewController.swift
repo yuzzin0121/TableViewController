@@ -16,8 +16,23 @@ class ChattingViewController: UIViewController {
 
         configureView()
         configureTableView()
+        scrollToBottom()
     }
 
+    private func scrollToBottom() {
+//        chattingTableView.setContentOffset(.init(x: 0, y: getTableViewBottomYOffset()), animated: true)
+        DispatchQueue.main.async {
+            let index = IndexPath(row: self.chatRoom.chatList.count - 1, section: 0)
+            self.chattingTableView.scrollToRow(at: index, at: .bottom, animated: false)
+        }
+    }
+    
+    // 테이블뷰의 맨 밑 Y좌표
+//    private func getTableViewBottomYOffset() -> CGFloat {
+//        let contentSize = chattingTableView.contentSize.height
+//        let frameSize = chattingTableView.frame.size.height
+//        return contentSize - frameSize
+//    }
 }
 
 extension ChattingViewController: ViewProtocol {
@@ -65,6 +80,7 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    
     
 }
 
