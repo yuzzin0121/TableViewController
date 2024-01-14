@@ -651,6 +651,9 @@
                             <constraint firstItem="pZv-GJ-kO1" firstAttribute="bottom" secondItem="k28-bb-Dev" secondAttribute="bottom" id="bAu-cf-0Ge"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="chattingTableView" destination="k28-bb-Dev" id="W2y-7G-9Bp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhP-5T-tdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

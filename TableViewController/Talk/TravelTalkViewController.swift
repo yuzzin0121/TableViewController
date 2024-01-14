@@ -240,6 +240,8 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let chattingVC = storyboard?.instantiateViewController(identifier: "ChattingViewController") as! ChattingViewController
         
+        chattingVC.chatRoom = mockChatList[indexPath.row]
+        
         navigationController?.pushViewController(chattingVC, animated: true)
     }
 }

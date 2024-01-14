@@ -22,4 +22,14 @@ struct Chat {
         return formatter.string(from: convertDate ?? Date())
        
     }
+    
+    var messageDateString: String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd hh:mm"
+        let convertDate = formatter.date(from: date ?? "2024-01-12 18:38")
+        formatter.dateFormat = "hh:mm a"
+        formatter.locale = Locale(identifier:"ko_KR")
+        
+        return formatter.string(from: convertDate ?? Date())
+    }
 }
