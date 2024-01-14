@@ -221,8 +221,11 @@ extension TravelTalkViewController: ViewProtocol {
         travelTalkTableView.dataSource = self
         travelTalkTableView.estimatedRowHeight = 75
         travelTalkTableView.separatorStyle = .none
-        let chatRooomNib = UINib(nibName: UserTableViewCell.identifier, bundle: nil)
-        travelTalkTableView.register(chatRooomNib, forCellReuseIdentifier: UserTableViewCell.identifier)
+        let chatRoomNib = UINib(nibName: UserTableViewCell.identifier, bundle: nil)
+        let fourUserChatRoomNib = UINib(nibName: FourUserTableViewCell.identifier, bundle: nil)
+        
+        travelTalkTableView.register(chatRoomNib, forCellReuseIdentifier: UserTableViewCell.identifier)
+        travelTalkTableView.register(fourUserChatRoomNib, forCellReuseIdentifier: FourUserTableViewCell.identifier)
     }
     
     func designSearchBar() {
@@ -255,16 +258,31 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
-        cell.selectionStyle = .none
         
         if self.isFiltering {
+            let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
+            cell.selectionStyle = .none
+            
             cell.configureCell(item: filteredChatList[indexPath.row])
+            
+            return cell
         } else {
-            cell.configureCell(item: mockChatList[indexPath.row])
+            
+            switch mockChatList[indexPath.row].chatroomImage.count {
+            case 4...:
+                let cell = tableView.dequeueReusableCell(withIdentifier: FourUserTableViewCell.identifier, for: indexPath) as! FourUserTableViewCell
+                cell.selectionStyle = .none
+                cell.configureCell(item: mockChatList[indexPath.row])
+                return cell
+            default:
+                let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
+                cell.selectionStyle = .none
+                cell.configureCell(item: mockChatList[indexPath.row])
+                return cell
+            }
+            
         }
         
-        return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

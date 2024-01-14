@@ -12,6 +12,8 @@
 		611F14992B48025700B983F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611F14972B48025700B983F1 /* Main.storyboard */; };
 		611F149B2B48025900B983F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 611F149A2B48025900B983F1 /* Assets.xcassets */; };
 		611F149E2B48025900B983F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611F149C2B48025900B983F1 /* LaunchScreen.storyboard */; };
+		6156DE7C2B542AC6005E0AA7 /* FourUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156DE7A2B542AC6005E0AA7 /* FourUserTableViewCell.swift */; };
+		6156DE7D2B542AC6005E0AA7 /* FourUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6156DE7B2B542AC6005E0AA7 /* FourUserTableViewCell.xib */; };
 		619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */; };
 		619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */; };
 		619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */; };
@@ -62,6 +64,8 @@
 		611F149A2B48025900B983F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		611F149D2B48025900B983F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		611F149F2B48025900B983F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6156DE7A2B542AC6005E0AA7 /* FourUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourUserTableViewCell.swift; sourceTree = "<group>"; };
+		6156DE7B2B542AC6005E0AA7 /* FourUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourUserTableViewCell.xib; sourceTree = "<group>"; };
 		619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
@@ -211,6 +215,8 @@
 				61A7B9BF2B51307E00795B49 /* FriendChattingCell.xib */,
 				61A7B9C22B51309000795B49 /* MyChattingCell.swift */,
 				61A7B9C32B51309000795B49 /* MyChattingCell.xib */,
+				6156DE7A2B542AC6005E0AA7 /* FourUserTableViewCell.swift */,
+				6156DE7B2B542AC6005E0AA7 /* FourUserTableViewCell.xib */,
 			);
 			path = Talk;
 			sourceTree = "<group>";
@@ -331,6 +337,7 @@
 				61A7B9C12B51307E00795B49 /* FriendChattingCell.xib in Resources */,
 				611F149B2B48025900B983F1 /* Assets.xcassets in Resources */,
 				61A7B9542B50556E00795B49 /* AdTableViewCell.xib in Resources */,
+				6156DE7D2B542AC6005E0AA7 /* FourUserTableViewCell.xib in Resources */,
 				61A7B9BD2B51304C00795B49 /* UserTableViewCell.xib in Resources */,
 				61A7B9C52B51309000795B49 /* MyChattingCell.xib in Resources */,
 				611F14992B48025700B983F1 /* Main.storyboard in Resources */,
@@ -362,6 +369,7 @@
 				61A7B9582B50560100795B49 /* TravelViewController.swift in Sources */,
 				61A7B9BC2B51304C00795B49 /* UserTableViewCell.swift in Sources */,
 				61A7B9B52B51294200795B49 /* ChattingViewController.swift in Sources */,
+				6156DE7C2B542AC6005E0AA7 /* FourUserTableViewCell.swift in Sources */,
 				619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */,
 				61A7B9672B50705800795B49 /* Int+Extension.swift in Sources */,
 				61A7B9632B505F6200795B49 /* UILabel+Extension.swift in Sources */,
