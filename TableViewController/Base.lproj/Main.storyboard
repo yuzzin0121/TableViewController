@@ -595,34 +595,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="p7F-8G-ng0">
-                                <rect key="frame" x="0.0" y="103" width="393" height="56"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="qCT-wd-g6k" id="48k-VW-BcM"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="GK4-hr-RdI">
-                                <rect key="frame" x="0.0" y="159" width="393" height="659"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xdE-17-24v"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="p7F-8G-ng0" firstAttribute="trailing" secondItem="xdE-17-24v" secondAttribute="trailing" id="4Hf-55-aiA"/>
                             <constraint firstItem="xdE-17-24v" firstAttribute="bottom" secondItem="GK4-hr-RdI" secondAttribute="bottom" id="Thw-hr-olg"/>
-                            <constraint firstItem="GK4-hr-RdI" firstAttribute="top" secondItem="p7F-8G-ng0" secondAttribute="bottom" id="TlG-hb-7KY"/>
+                            <constraint firstItem="GK4-hr-RdI" firstAttribute="top" secondItem="xdE-17-24v" secondAttribute="top" id="d5F-Kz-zIT"/>
                             <constraint firstItem="xdE-17-24v" firstAttribute="trailing" secondItem="GK4-hr-RdI" secondAttribute="trailing" id="fsI-yF-O1F"/>
-                            <constraint firstItem="p7F-8G-ng0" firstAttribute="leading" secondItem="xdE-17-24v" secondAttribute="leading" id="mK6-ft-EkY"/>
-                            <constraint firstItem="p7F-8G-ng0" firstAttribute="top" secondItem="xdE-17-24v" secondAttribute="top" id="sJq-a9-lCY"/>
                             <constraint firstItem="GK4-hr-RdI" firstAttribute="leading" secondItem="xdE-17-24v" secondAttribute="leading" id="vQc-XX-L2j"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mko-UG-aqs"/>
                     <connections>
                         <outlet property="travelTalkTableView" destination="GK4-hr-RdI" id="qXd-vX-1nC"/>
-                        <outlet property="userSearchBar" destination="p7F-8G-ng0" id="WUJ-My-mmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iTh-NA-cHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

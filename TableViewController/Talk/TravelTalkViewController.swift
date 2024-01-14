@@ -10,8 +10,15 @@ import UIKit
 class TravelTalkViewController: UIViewController {
     @IBOutlet weak var travelTalkTableView: UITableView!
     @IBOutlet weak var userSearchBar: UISearchBar!
+    let searchController = UISearchController(searchResultsController: nil)
     
-    let users: [User] = User.allCases
+    var filteredChatList: [ChatRoom] = []
+    var isFiltering: Bool {
+        let searchController = self.navigationItem.searchController
+        let isActive = searchController?.isActive ?? false
+        let isSearchBarHasText = searchController?.searchBar.text?.isEmpty == false
+        return isActive && isSearchBarHasText
+    }
     
     let mockChatList: [ChatRoom] = [
         ChatRoom(chatroomId: 1,
@@ -197,7 +204,7 @@ class TravelTalkViewController: UIViewController {
         super.viewDidLoad()
 
         configureView()
-        designSearchBar(userSearchBar)
+        designSearchBar()
         configureTableView()
     }
     
@@ -218,21 +225,44 @@ extension TravelTalkViewController: ViewProtocol {
         travelTalkTableView.register(chatRooomNib, forCellReuseIdentifier: UserTableViewCell.identifier)
     }
     
-    func designSearchBar(_ searchBar: UISearchBar) {
-        searchBar.placeholder = "친구 이름을 검색해보세요"
-        searchBar.isTranslucent = true
+    func designSearchBar() {
+        self.navigationItem.searchController = searchController
+        searchController.searchBar.placeholder = "친구 이름을 검색해보세요"
+        self.navigationItem.hidesSearchBarWhenScrolling = false // 스크롤할 때도 서치바 보이기
+        // 서치바에 text가 업데이트 될 때마다 불리는 메소드
+        searchController.searchResultsUpdater = self
+    }
+    
+    
+}
+
+extension TravelTalkViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        guard let text = searchController.searchBar.text else { return }
+        for chat in mockChatList {
+            if chat.chatroomName.contains(text) {
+                filteredChatList.append(chat)
+            }
+        }
+        
+        self.travelTalkTableView.reloadData()
     }
 }
 
 extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return mockChatList.count
+        return self.isFiltering ? self.filteredChatList.count : self.mockChatList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
         cell.selectionStyle = .none
-        cell.configureCell(item: mockChatList[indexPath.row])
+        
+        if self.isFiltering {
+            cell.configureCell(item: filteredChatList[indexPath.row])
+        } else {
+            cell.configureCell(item: mockChatList[indexPath.row])
+        }
         
         return cell
     }
@@ -242,6 +272,7 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
         
         chattingVC.chatRoom = mockChatList[indexPath.row]
         
+        navigationItem.searchController?.searchBar.text = ""
         navigationController?.pushViewController(chattingVC, animated: true)
     }
 }
