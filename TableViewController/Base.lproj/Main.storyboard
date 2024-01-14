@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -627,21 +628,55 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="k28-bb-Dev">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="715"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="7JK-2Q-o36">
+                                <rect key="frame" x="24" y="774" width="345" height="44"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="2zl-Ic-c3I">
+                                        <rect key="frame" x="0.0" y="4" width="290" height="36"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="290" id="cft-NN-AVb"/>
+                                            <constraint firstAttribute="height" constant="36" id="gEV-E1-Wfh"/>
+                                        </constraints>
+                                        <color key="textColor" systemColor="labelColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RVU-b5-AlH">
+                                        <rect key="frame" x="301" y="0.0" width="44" height="44"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="44" id="kfi-CF-AJU"/>
+                                            <constraint firstAttribute="width" secondItem="RVU-b5-AlH" secondAttribute="height" multiplier="1:1" id="oDa-Vc-1jL"/>
+                                            <constraint firstAttribute="width" constant="44" id="yEz-h9-Wl7"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal">
+                                            <imageReference key="image" image="paperplane" catalog="system" symbolScale="large"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="pZv-GJ-kO1"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="k28-bb-Dev" firstAttribute="top" secondItem="pZv-GJ-kO1" secondAttribute="top" id="1fe-iy-QRW"/>
+                            <constraint firstItem="7JK-2Q-o36" firstAttribute="bottom" secondItem="pZv-GJ-kO1" secondAttribute="bottom" id="3dz-IU-Ah9"/>
+                            <constraint firstItem="pZv-GJ-kO1" firstAttribute="trailing" secondItem="7JK-2Q-o36" secondAttribute="trailing" constant="24" id="Hsg-PR-oop"/>
+                            <constraint firstItem="7JK-2Q-o36" firstAttribute="leading" secondItem="pZv-GJ-kO1" secondAttribute="leading" constant="24" id="Nzt-W8-ZRq"/>
+                            <constraint firstItem="7JK-2Q-o36" firstAttribute="top" secondItem="k28-bb-Dev" secondAttribute="bottom" id="RGl-3T-3j7"/>
                             <constraint firstItem="pZv-GJ-kO1" firstAttribute="trailing" secondItem="k28-bb-Dev" secondAttribute="trailing" id="S7x-Rh-1pC"/>
                             <constraint firstItem="k28-bb-Dev" firstAttribute="leading" secondItem="pZv-GJ-kO1" secondAttribute="leading" id="alV-Py-wWL"/>
-                            <constraint firstItem="pZv-GJ-kO1" firstAttribute="bottom" secondItem="k28-bb-Dev" secondAttribute="bottom" id="bAu-cf-0Ge"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="chattingTableView" destination="k28-bb-Dev" id="W2y-7G-9Bp"/>
+                        <outlet property="messageSendButton" destination="RVU-b5-AlH" id="bN8-Vo-LYE"/>
+                        <outlet property="messageTextView" destination="2zl-Ic-c3I" id="dbh-Xy-NHa"/>
+                        <outlet property="textViewHeightConstraint" destination="gEV-E1-Wfh" id="ljc-Hc-a3s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YhP-5T-tdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -781,8 +816,12 @@
         <image name="bed.double.fill" catalog="system" width="128" height="82"/>
         <image name="clipboard.fill" catalog="system" width="98" height="128"/>
         <image name="moon.fill" catalog="system" width="128" height="123"/>
+        <image name="paperplane" catalog="system" width="128" height="119"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
         <image name="x" width="128" height="128"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

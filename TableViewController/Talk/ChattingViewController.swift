@@ -10,13 +10,19 @@ import UIKit
 class ChattingViewController: UIViewController {
     var chatRoom: ChatRoom = ChatRoom(chatroomId: 0, chatroomImage: [""], chatroomName: "채팅방")
     @IBOutlet weak var chattingTableView: UITableView!
+    @IBOutlet weak var messageTextView: UITextView!
+    @IBOutlet weak var messageSendButton: UIButton!
+    let messageTextViewPlaceholder = "메시지를 입력하세요"
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureView()
         configureTableView()
+        designTextView(messageTextView)
         scrollToBottom()
+        messageSendButton.tintColor = .darkGray
     }
 
     private func scrollToBottom() {
@@ -45,6 +51,18 @@ extension ChattingViewController: ViewProtocol {
         navigationController?.popViewController(animated: true)
     }
     
+    func designTextView(_ textView: UITextView) {
+        textView.delegate = self
+        textView.backgroundColor = UIColor(named: "textViewGray")
+        textView.clipsToBounds = true
+        textView.layer.cornerRadius = 12
+        textView.textContainerInset = .init(top: 10, left: 16, bottom: 10, right: 16)
+        textView.textColor = .systemGray4
+        textView.font = .systemFont(ofSize: 16, weight: .semibold)
+        textView.text = messageTextViewPlaceholder
+        textView.translatesAutoresizingMaskIntoConstraints = true
+    }
+    
     func configureTableView() {
         chattingTableView.delegate = self
         chattingTableView.dataSource = self
@@ -56,6 +74,12 @@ extension ChattingViewController: ViewProtocol {
         
         chattingTableView.register(FriendChattingNib, forCellReuseIdentifier: FriendChattingCell.identifier)
         chattingTableView.register(MyChattingNib, forCellReuseIdentifier: MyChattingCell.identifier)
+    }
+    
+    func changeTextViewHeight(_ height: Int, multi: CGFloat) {
+//        messageTextView.heightAnchor.constraint(equalToConstant: CGFloat(height)*multi).isActive = true
+//        print("변경")
+        textViewHeightConstraint.constant = CGFloat(height) * multi
     }
     
 }
@@ -84,3 +108,32 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
+
+extension ChattingViewController: UITextViewDelegate {
+    // textView에 focus를 얻는 경우 발생
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == messageTextViewPlaceholder {
+            textView.text = nil
+            textView.textColor = .black
+        }
+    }
+    
+    // textView에 focus를 잃는 경우 발생
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            textView.text = messageTextViewPlaceholder
+            textView.textColor = UIColor(named: "textViewGray")
+        }
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        switch textView.numberOfLine() {
+        case 2:
+            changeTextViewHeight(32, multi: 2)
+        case 3...:
+            changeTextViewHeight(32, multi: 3)
+        default:
+            return
+        }
+    }
+}

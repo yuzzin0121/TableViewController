@@ -14,6 +14,8 @@
 		611F149E2B48025900B983F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 611F149C2B48025900B983F1 /* LaunchScreen.storyboard */; };
 		6156DE7C2B542AC6005E0AA7 /* FourUserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156DE7A2B542AC6005E0AA7 /* FourUserTableViewCell.swift */; };
 		6156DE7D2B542AC6005E0AA7 /* FourUserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6156DE7B2B542AC6005E0AA7 /* FourUserTableViewCell.xib */; };
+		6156DE802B54315A005E0AA7 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6156DE7F2B54315A005E0AA7 /* IQKeyboardManagerSwift */; };
+		6156DE822B543872005E0AA7 /* UITextView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6156DE812B543872005E0AA7 /* UITextView+extension.swift */; };
 		619BE04C2B4809DF00EEB169 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */; };
 		619BE04E2B480A0B00EEB169 /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */; };
 		619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */; };
@@ -66,6 +68,7 @@
 		611F149F2B48025900B983F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6156DE7A2B542AC6005E0AA7 /* FourUserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourUserTableViewCell.swift; sourceTree = "<group>"; };
 		6156DE7B2B542AC6005E0AA7 /* FourUserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FourUserTableViewCell.xib; sourceTree = "<group>"; };
+		6156DE812B543872005E0AA7 /* UITextView+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+extension.swift"; sourceTree = "<group>"; };
 		619BE04B2B4809DF00EEB169 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		619BE04D2B480A0B00EEB169 /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		619BE04F2B480D3500EEB169 /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
@@ -113,6 +116,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				61D9251E2B4C21F2002A16B4 /* Kingfisher in Frameworks */,
+				6156DE802B54315A005E0AA7 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +179,7 @@
 				61A7B9412B4EEEAD00795B49 /* UIView+Extension.swift */,
 				61A7B9622B505F6200795B49 /* UILabel+Extension.swift */,
 				61A7B9662B50705800795B49 /* Int+Extension.swift */,
+				6156DE812B543872005E0AA7 /* UITextView+extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 			name = TableViewController;
 			packageProductDependencies = (
 				61D9251D2B4C21F2002A16B4 /* Kingfisher */,
+				6156DE7F2B54315A005E0AA7 /* IQKeyboardManagerSwift */,
 			);
 			productName = TableViewController;
 			productReference = 611F148E2B48025700B983F1 /* TableViewController.app */;
@@ -318,6 +324,7 @@
 			mainGroup = 611F14852B48025700B983F1;
 			packageReferences = (
 				61D9251C2B4C21F2002A16B4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				6156DE7E2B54315A005E0AA7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 611F148F2B48025700B983F1 /* Products */;
 			projectDirPath = "";
@@ -383,6 +390,7 @@
 				61A7B94F2B50555C00795B49 /* TravelTableViewCell.swift in Sources */,
 				61A7B9422B4EEEAD00795B49 /* UIView+Extension.swift in Sources */,
 				619BE0502B480D3500EEB169 /* ShoppingTableViewController.swift in Sources */,
+				6156DE822B543872005E0AA7 /* UITextView+extension.swift in Sources */,
 				61A7B9362B4DA72300795B49 /* CityInfoViewController.swift in Sources */,
 				61A7B9332B4DA26F00795B49 /* CityInfoCollectionViewCell.swift in Sources */,
 				61A7B95D2B50561C00795B49 /* AdViewController.swift in Sources */,
@@ -613,6 +621,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		6156DE7E2B54315A005E0AA7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
 		61D9251C2B4C21F2002A16B4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher";
@@ -624,6 +640,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		6156DE7F2B54315A005E0AA7 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6156DE7E2B54315A005E0AA7 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		61D9251D2B4C21F2002A16B4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 61D9251C2B4C21F2002A16B4 /* XCRemoteSwiftPackageReference "Kingfisher" */;

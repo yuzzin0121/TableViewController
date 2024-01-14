@@ -259,17 +259,18 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        // 검색 중일 경우
         if self.isFiltering {
             let cell = tableView.dequeueReusableCell(withIdentifier: UserTableViewCell.identifier, for: indexPath) as! UserTableViewCell
             cell.selectionStyle = .none
             
+            // filtering된 리스트를 보여줌
             cell.configureCell(item: filteredChatList[indexPath.row])
             
             return cell
         } else {
-            
             switch mockChatList[indexPath.row].chatroomImage.count {
-            case 4...:
+            case 4...:  // 4명 이상일 경우
                 let cell = tableView.dequeueReusableCell(withIdentifier: FourUserTableViewCell.identifier, for: indexPath) as! FourUserTableViewCell
                 cell.selectionStyle = .none
                 cell.configureCell(item: mockChatList[indexPath.row])
