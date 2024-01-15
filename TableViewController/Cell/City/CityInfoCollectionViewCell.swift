@@ -38,22 +38,10 @@ class CityInfoCollectionViewCell: UICollectionViewCell, TableViewCellProtocol {
         cityExplainLabel.text = cityInfo.city_explain
     }
     
+    // keyword에 해당하는 글자만 색깔 변경
     func changeTextColor(keyword: String?) {
-        guard let keyword = keyword else { return }
-        let cityNameText = cityNameLabel.text!
-        let cityEnglishNameText = cityEnglishNameLabel.text!
-        let cityExplainText = cityExplainLabel.text!
-        
-        let nameAttributeString = NSMutableAttributedString(string: cityNameText)
-        let englishNameAttributeString = NSMutableAttributedString(string: cityEnglishNameText)
-        let explainAttributeString = NSMutableAttributedString(string: cityExplainText)
-        
-        nameAttributeString.addAttribute(.foregroundColor, value: UIColor.red, range: (cityNameText as NSString).range(of: keyword))
-        englishNameAttributeString.addAttribute(.foregroundColor, value: UIColor.red, range: (cityEnglishNameText as NSString).range(of: keyword))
-        explainAttributeString.addAttribute(.foregroundColor, value: UIColor.red, range: (cityExplainText as NSString).range(of: keyword))
-        
-        cityNameLabel.attributedText = nameAttributeString
-        cityEnglishNameLabel.attributedText = englishNameAttributeString
-        cityExplainLabel.attributedText = explainAttributeString
+        cityNameLabel.changeTextColor(keyword: keyword)
+        cityEnglishNameLabel.changeTextColor(keyword: keyword)
+        cityExplainLabel.changeTextColor(keyword: keyword)
     }
 }
