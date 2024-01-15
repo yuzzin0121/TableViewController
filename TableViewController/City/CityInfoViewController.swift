@@ -21,6 +21,7 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
             collectionView.reloadData()
         }
     }
+    var keywordText = ""
     
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -124,6 +125,7 @@ extension CityInfoViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let text = searchController.searchBar.text!
         let trimText = text.components(separatedBy: [" "]).joined()
+        keywordText = trimText
         
         if trimText == "" {
             setList()
@@ -145,6 +147,7 @@ extension CityInfoViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let text = searchController.searchBar.text!
         let trimText = text.components(separatedBy: [" "]).joined()
+        keywordText = trimText
         
         if trimText == "" {
             setList()
@@ -164,6 +167,7 @@ extension CityInfoViewController: UISearchBarDelegate {
     
     // 검색 취소 버튼 눌렀을 때
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        keywordText = ""
         searchBar.text = ""
         setList()
     }
@@ -178,6 +182,7 @@ extension CityInfoViewController: UICollectionViewDelegate, UICollectionViewData
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityInfoCollectionViewCell.identifier, for: indexPath) as! CityInfoCollectionViewCell
  
         cell.configureCell(item: list[indexPath.row])
+        cell.changeTextColor(keyword: keywordText)
         
         return cell
     }
