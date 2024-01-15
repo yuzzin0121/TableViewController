@@ -9,7 +9,7 @@ import UIKit
 
 class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
     
-    let cityList = CityInfo.cityList
+    let cityList = CityInfo.cityList    // original City List
     let searchController = UISearchController(searchResultsController: nil)
     
     var allList: [City] = CityInfo.cityList // 모두
@@ -34,6 +34,8 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         configurationSearchController()
         setCollectionViewFlowLayout()
     }
+    
+    // 뷰 클릭 시 키보드 내리기
     @IBAction func didTapGesture(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
@@ -46,6 +48,7 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         searchController.searchBar.delegate = self
     }
     
+    // collectionview 설정
     func configureCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
@@ -53,6 +56,7 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         collectionView.register(xib, forCellWithReuseIdentifier: CityInfoCollectionViewCell.identifier)
     }
     
+    // collectionview 설정
     func setCollectionViewFlowLayout() {
         let layout = UICollectionViewFlowLayout()
         let spacing: CGFloat = 24
@@ -68,6 +72,7 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         collectionView.collectionViewLayout = layout
     }
 
+    // 국내 or 해외 리스트 가져오기
     func getList(isDomestic: Bool) -> [City]{
         var list: [City] = []
         for city in cityList {
@@ -78,8 +83,9 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         return list
     }
 
+    // 세그먼트 인덱스 변경시 호출
     @IBAction func changeIndex(_ sender: UISegmentedControl) {
-        collectionView.reloadData()
+        collectionView.reloadData() // 리로드
         searchBar(searchController.searchBar, textDidChange: searchController.searchBar.text!)
     }
     
@@ -100,7 +106,12 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
         var filterlist: [City] = []
         
         for item in list {
-            if item.city_name.contains(keyword) || item.city_english_name.contains(keyword) || item.city_explain.contains(keyword){
+            if item.city_name.contains(keyword) || item.city_english_name.contains(keyword) || item.city_explain.contains(keyword) {
+                filterlist.append(item)
+            }
+            else if item.city_name.lowercased().contains(keyword) || item.city_english_name.lowercased().contains(keyword) || item.city_explain.lowercased().contains(keyword) {
+                filterlist.append(item)
+            } else if item.city_name.uppercased().contains(keyword) || item.city_english_name.uppercased().contains(keyword) || item.city_explain.uppercased().contains(keyword) {
                 filterlist.append(item)
             }
         }
