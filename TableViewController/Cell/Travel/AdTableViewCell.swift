@@ -8,7 +8,7 @@
 import UIKit
 
 class AdTableViewCell: UITableViewCell {
-    static var identifier: String = "AdTableViewCell"
+
     @IBOutlet weak var adStringLabel: UILabel!
     @IBOutlet weak var adMarkLabel: UILabel!
     

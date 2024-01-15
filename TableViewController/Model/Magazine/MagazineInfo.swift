@@ -1,16 +1,14 @@
 //
-//  MagazineTableViewController.swift
+//  MagazineInfo.swift
 //  TableViewController
 //
-//  Created by 조유진 on 1/8/24.
+//  Created by 조유진 on 1/15/24.
 //
 
-import UIKit
-import Kingfisher
+import Foundation
 
-class MagazineTableViewController: UITableViewController {
-    
-    let magazineList: [Magazine] = [
+struct MagazineInfo {
+    static let magazineList: [Magazine] = [
         Magazine(title: "유럽 여행 쇼핑 성지, OOO은 꼭 가세요!", subtitle: "유럽의 인기 쇼핑 명소 총정리", photo_image: "https://i.namu.wiki/i/1E2wCXUwFym-bYSTtV98bCnbQwdfmQVonirXbFOT_93AAbEOxuBKK44nhvh7RQEdcrPkmOO8L6bmO3K4-NDmnlJT5Y7-tG8VRN-KW9W821rHR2-D7TxbkBm_u-RCHCJEDSaCKjeIFnhXjyRgrJA51A.webp", date: "231118", link: "https://triple.guide/articles/265bd919-3f75-4adc-8d5d-c5cf60201bfe"),
         Magazine(title: "현지 MZ가 알려주는 오사카 MZ 인기 스팟", subtitle: "2024 오사카 여행엔 여기!", photo_image: "https://i.namu.wiki/i/DjuRgA9wKbXDPwybuUxoyBkCNFYWcY_BbWiuzCbpokF14YwttEFrZcgc4JHz4Hlrw-QRseFvFoqgNhkK2mcIvA7-jJ-Ly4QNUur_zYbTb-wjhGCaDS4S6wjxR5lJcINn7FV1AAdwJKW6kEiGEpMXKg.webp", date: "240103", link: "https://triple.guide/articles/d6c5257f-4d52-4a0a-aed2-6773961ee7be"),
         Magazine(title: "2024 NEWS 해외여행, 이렇게 달라졌다!", subtitle: "알고 준비하는 2024 새 여행", photo_image: "https://i.namu.wiki/i/9ArKhreiDY-BeVMauJxRVoJ7Tadm8eqIjWVxQideS6sTfbA7nn0QN7cskTq03PEs6-rx02B7Q-76ldhwI_QPORR139FDAwrISCsWyd1cLK5Ua62N0jdsFiGvNHplEZYv4rTaPAuF0fFJIUaccrf2EQ.webp", date: "240108", link: "https://triple.guide/articles/997d84b1-25b3-4494-a400-457d1205264a"),
@@ -28,24 +26,4 @@ class MagazineTableViewController: UITableViewController {
         Magazine(title: "여행 고수가 알려주는 새벽 비행기 이용 꿀팁", subtitle: "이제 공항에서 시간 때울 걱정 끝!", photo_image: "https://i.namu.wiki/i/6hscyOX5gNdRdcN5IdtHA7VkQHdFnvszFrGY0MrVv6Iljb2sRTKxne86s9h01lMGgIC10wOqlDHmDX09mL615-xJV0tOhNV9V_SdVVXaY47CM9aaqwS63NiUwnDSFX_DZPmeWCCHoxucWPbAPZnaSA.webp", date: "240105", link: "https://triple.guide/content/articles/791578f3-95d7-4300-a51f-6dff48db5d55"),
 
     ]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        tableView.rowHeight = 480
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return magazineList.count
-    }
-  
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: MagazineTableViewCell.identifier, for: indexPath) as! MagazineTableViewCell
-        
-        cell.configureCell(item: magazineList[indexPath.row])
-        
-        return cell
-    }
-
-    
 }

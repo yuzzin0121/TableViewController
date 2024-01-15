@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lE7-Zb-8z5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ijJ-Sz-OwY">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -471,6 +471,40 @@
             </objects>
             <point key="canvasLocation" x="3904.5801526717555" y="1613.3802816901409"/>
         </scene>
+        <!--Magazine Web View Controller-->
+        <scene sceneID="B7C-cg-Fgp">
+            <objects>
+                <viewController storyboardIdentifier="MagazineWebViewController" id="Bhn-Ny-3el" customClass="MagazineWebViewController" customModule="TableViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iYM-xl-Enp">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kr0-88-saa">
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="JaE-MO-bzO"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Kr0-88-saa" firstAttribute="leading" secondItem="JaE-MO-bzO" secondAttribute="leading" id="5KV-Uo-Hl9"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="Kr0-88-saa" secondAttribute="bottom" id="FwW-3B-2fb"/>
+                            <constraint firstItem="Kr0-88-saa" firstAttribute="top" secondItem="JaE-MO-bzO" secondAttribute="top" id="J2R-Pb-hwy"/>
+                            <constraint firstItem="JaE-MO-bzO" firstAttribute="trailing" secondItem="Kr0-88-saa" secondAttribute="trailing" id="Mzf-Wi-EPy"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="Kr0-88-saa" id="9Ls-Aw-9YJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wvo-iN-ZOH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4573" y="1613"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="7T8-ba-QXs">
             <objects>
@@ -725,6 +759,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vfW-VH-8oa"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="49N-hD-eWu" firstAttribute="leading" secondItem="vfW-VH-8oa" secondAttribute="leading" constant="36" id="09p-yw-YdS"/>
                             <constraint firstItem="vfW-VH-8oa" firstAttribute="trailing" secondItem="kKz-LR-BCG" secondAttribute="trailing" id="4n7-th-l8O"/>
@@ -735,6 +770,9 @@
                             <constraint firstItem="49N-hD-eWu" firstAttribute="top" secondItem="vfW-VH-8oa" secondAttribute="top" constant="12" id="r9I-du-a2a"/>
                             <constraint firstItem="vfW-VH-8oa" firstAttribute="bottom" secondItem="kKz-LR-BCG" secondAttribute="bottom" id="wc8-F1-6Vt"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="C7b-fl-yCF" appends="YES" id="ece-Yk-pKX"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="인기 도시" id="klU-bJ-Gef"/>
                     <connections>
@@ -743,6 +781,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tLr-XU-CJe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="C7b-fl-yCF">
+                    <connections>
+                        <action selector="didTapGesture:" destination="E5v-Xs-71y" id="1Pk-cv-gbF"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-291" y="2101"/>
         </scene>

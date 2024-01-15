@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class TravelTableViewCell: UITableViewCell, TableViewCellProtocol {
-    static var identifier: String = "TravelTableViewCell"
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!

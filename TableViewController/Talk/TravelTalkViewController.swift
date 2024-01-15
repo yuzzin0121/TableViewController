@@ -287,7 +287,7 @@ extension TravelTalkViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chattingVC = storyboard?.instantiateViewController(identifier: "ChattingViewController") as! ChattingViewController
+        let chattingVC = storyboard?.instantiateViewController(identifier: ChattingViewController.identifier) as! ChattingViewController
         
         chattingVC.chatRoom = mockChatList[indexPath.row]
         

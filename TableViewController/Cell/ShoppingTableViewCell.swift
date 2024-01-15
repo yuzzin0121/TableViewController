@@ -9,8 +9,6 @@ import UIKit
 
 class ShoppingTableViewCell: UITableViewCell, TableViewCellProtocol {
     
-    static var identifier: String = "ShoppingTableViewCell"
-    
     @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var checkButton: UIButton!
     @IBOutlet weak var shopTodoLabel: UILabel!

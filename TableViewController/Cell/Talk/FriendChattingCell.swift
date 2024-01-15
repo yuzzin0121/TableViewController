@@ -8,7 +8,6 @@
 import UIKit
 
 class FriendChattingCell: UITableViewCell, TableViewCellProtocol {
-    static var identifier: String = "FriendChattingCell"
     
     @IBOutlet weak var friendProfileImageView: UIImageView!
     @IBOutlet weak var friendNameLabel: UILabel!

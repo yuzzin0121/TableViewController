@@ -9,7 +9,6 @@ import UIKit
 import Kingfisher
 
 class CityInfoCollectionViewCell: UICollectionViewCell, TableViewCellProtocol {
-    static var identifier: String = "CityInfoCollectionViewCell"
     
     @IBOutlet weak var cityImageView: UIImageView!
     @IBOutlet weak var cityNameLabel: UILabel!
@@ -18,16 +17,16 @@ class CityInfoCollectionViewCell: UICollectionViewCell, TableViewCellProtocol {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        cityImageView.clipsToBounds = true
-        cityImageView.layer.cornerRadius = cityImageView.frame.height / 2
-        cityImageView.contentMode = .scaleAspectFill
-        cityNameLabel.font = .boldSystemFont(ofSize: 14)
-        cityEnglishNameLabel.font = .boldSystemFont(ofSize: 14)
-        cityExplainLabel.textColor = .lightGray
+
+        cityNameLabel.design(font: .boldSystemFont(ofSize: 14))
+        
+        cityEnglishNameLabel.design(font: .boldSystemFont(ofSize: 14))
+        
+        cityExplainLabel.design(textColor: .lightGray)
     }
     
     override func layoutSubviews() {
-        cityImageView.layer.cornerRadius = cityImageView.frame.height / 2
+        cityImageView.design(cornerRadius: cityImageView.frame.height / 2)
     }
     
     func configureCell(item: Any) {

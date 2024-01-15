@@ -8,7 +8,6 @@
 import UIKit
 
 class FourUserTableViewCell: UITableViewCell, TableViewCellProtocol {
-    static var identifier: String = "FourUserTableViewCell"
     
     @IBOutlet weak var user1ImageView: UIImageView!
     @IBOutlet weak var user2ImageView: UIImageView!

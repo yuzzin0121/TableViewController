@@ -76,10 +76,12 @@ extension ChattingViewController: ViewProtocol {
         chattingTableView.register(MyChattingNib, forCellReuseIdentifier: MyChattingCell.identifier)
     }
     
-    func changeTextViewHeight(_ height: Int, multi: CGFloat) {
+    func changeTextViewHeight(_ height: CGFloat, multi: CGFloat) {
 //        messageTextView.heightAnchor.constraint(equalToConstant: CGFloat(height)*multi).isActive = true
 //        print("변경")
-        textViewHeightConstraint.constant = CGFloat(height) * multi
+        DispatchQueue.main.async {
+            self.textViewHeightConstraint.constant = (self.messageTextView.font?.lineHeight ?? height) * multi
+        }
     }
     
 }

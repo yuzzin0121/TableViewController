@@ -8,8 +8,7 @@
 import UIKit
 
 class UserTableViewCell: UITableViewCell, TableViewCellProtocol {
-    static var identifier: String = "UserTableViewCell"
-    
+ 
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var recentMessageLabel: UILabel!

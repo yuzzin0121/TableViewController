@@ -8,7 +8,7 @@
 import UIKit
 
 class MyChattingCell: UITableViewCell, TableViewCellProtocol {
-    static var identifier: String = "MyChattingCell"
+ 
     @IBOutlet weak var messageBackground: UIView!
     @IBOutlet weak var myMessageLabel: UILabel!
     @IBOutlet weak var messageDateLabel: UILabel!
