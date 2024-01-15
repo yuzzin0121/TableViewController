@@ -8,10 +8,18 @@
 import Foundation
 import CoreLocation
 
+enum TheaterName: String {
+    case total
+    case Lotte = "롯데시네마"
+    case Mega = "메가박스"
+    case CGV = "CGV"
+}
+
 struct Theater {
     let type: String
     let location: String
-    let latitude: CLLocationDegrees
-    let longitude: CLLocationDegrees
+    let latitude: Double
+    let longitude: Double
 }
+
 
