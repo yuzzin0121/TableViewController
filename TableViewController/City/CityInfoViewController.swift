@@ -123,17 +123,18 @@ class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
 extension CityInfoViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         let text = searchController.searchBar.text!
+        let trimText = text.components(separatedBy: [" "]).joined()
         
-        if text == "" {
+        if trimText == "" {
             setList()
         } else {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
-                list = getFilteredList(allList, keyword: text)
+                list = getFilteredList(allList, keyword: trimText)
             case 1:
-                list = getFilteredList(domesticList, keyword: text)
+                list = getFilteredList(domesticList, keyword: trimText)
             case 2:
-                list = getFilteredList(noDomesticList, keyword: text)
+                list = getFilteredList(noDomesticList, keyword: trimText)
             default:
                 print("오류")
             }
@@ -143,17 +144,18 @@ extension CityInfoViewController: UISearchBarDelegate {
     // 검색 버튼 눌렀을 때
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let text = searchController.searchBar.text!
+        let trimText = text.components(separatedBy: [" "]).joined()
         
-        if text == "" {
+        if trimText == "" {
             setList()
         } else {
             switch segmentedControl.selectedSegmentIndex {
             case 0:
-                list = getFilteredList(allList, keyword: text)
+                list = getFilteredList(allList, keyword: trimText)
             case 1:
-                list = getFilteredList(domesticList, keyword: text)
+                list = getFilteredList(domesticList, keyword: trimText)
             case 2:
-                list = getFilteredList(noDomesticList, keyword: text)
+                list = getFilteredList(noDomesticList, keyword: trimText)
             default:
                 print("오류")
             }
