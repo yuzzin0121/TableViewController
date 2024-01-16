@@ -7,6 +7,22 @@
 
 import UIKit
 
+//enum cityKind: Int {
+//    case all
+//    case domestic
+//    case noDomestic
+//    
+//    var name: String {
+//        switch self {
+//        case .all: return "모두"
+//        case .domestic: return "국내"
+//        case .noDomestic: return "해외"
+//        }
+//    }
+//
+//}
+// 수정중
+
 class CityInfoViewController: UIViewController, CollectionViewLayoutProtocol {
     
     let cityList = CityInfo.cityList    // original City List

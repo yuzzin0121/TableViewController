@@ -57,18 +57,7 @@ class TheaterMapViewController: UIViewController, ViewProtocol {
     
     // selectedTheaterList에 일치하는 데이터 가져오기
     func setList() {
-        switch selectedTheater {
-        case .total:
-            selectedTheaterList = getSelectedList(name: .total)
-        case .Lotte:
-            selectedTheaterList = getSelectedList(name: .Lotte)
-        case .Mega:
-            selectedTheaterList = getSelectedList(name: .Mega)
-        case .CGV:
-            selectedTheaterList = getSelectedList(name: .CGV)
-        default:
-            print("오류")
-        }
+        selectedTheaterList = getSelectedList(name: selectedTheater)
     }
     
     // 선택한 영화관 종류에 해당하는 아이템 추가
@@ -100,16 +89,16 @@ class TheaterMapViewController: UIViewController, ViewProtocol {
     @objc func alertActionSheet() {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         
-        [UIAlertAction(title: "메가박스", style: .default) { _ in
+        [UIAlertAction(title: TheaterName.Mega.rawValue, style: .default) { _ in
             self.setTheaterName(.Mega)
         },
-         UIAlertAction(title: "롯데시네마", style: .default) { _ in
+         UIAlertAction(title: TheaterName.Lotte.rawValue, style: .default) { _ in
             self.setTheaterName(.Lotte)
          },
-         UIAlertAction(title: "CGV", style: .default) { _ in 
+         UIAlertAction(title: TheaterName.CGV.rawValue, style: .default) { _ in
             self.setTheaterName(.CGV)
         },
-         UIAlertAction(title: "전체보기", style: .default) { _ in 
+         UIAlertAction(title: TheaterName.total.rawValue, style: .default) { _ in
             self.setTheaterName(.total)
         }].forEach {
             alert.addAction($0)
