@@ -17,4 +17,21 @@ extension UIButton {
         self.clipsToBounds = true
         self.layer.cornerRadius = cornerRadius
     }
+  
+}
+
+extension UIButton.Configuration {
+    static func locationStyle() -> UIButton.Configuration {
+        var config = UIButton.Configuration.filled()
+
+        config.baseBackgroundColor = .white
+        config.baseForegroundColor = .systemBlue
+        
+        config.image = UIImage(systemName: "location.fill")
+        config.imagePlacement = .all
+        config.imagePadding = 12
+        config.cornerStyle = .capsule
+        
+        return config
+    }
 }

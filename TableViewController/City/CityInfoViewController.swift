@@ -196,7 +196,7 @@ extension CityInfoViewController: UICollectionViewDelegate, UICollectionViewData
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CityInfoCollectionViewCell.identifier, for: indexPath) as! CityInfoCollectionViewCell
- 
+        
         cell.configureCell(item: list[indexPath.row])
         cell.changeTextColor(keyword: keywordText)
         

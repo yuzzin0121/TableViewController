@@ -75,7 +75,7 @@
                 <outlet property="userNameLabel" destination="UVZ-hS-I9o" id="Bus-zb-be7"/>
                 <outlet property="userProfileImageView" destination="P3J-0V-OnT" id="jPS-vh-swL"/>
             </connections>
-            <point key="canvasLocation" x="155.72519083969465" y="-13.732394366197184"/>
+            <point key="canvasLocation" x="139" y="-20"/>
         </tableViewCell>
     </objects>
 </document>

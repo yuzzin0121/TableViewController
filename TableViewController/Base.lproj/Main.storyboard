@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ijJ-Sz-OwY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="gG7-ox-AUj">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
@@ -848,18 +848,28 @@
                                 <rect key="frame" x="0.0" y="103" width="393" height="715"/>
                                 <standardMapConfiguration key="preferredConfiguration"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ylC-jw-XgG">
+                                <rect key="frame" x="42" y="746" width="30" height="30"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <connections>
+                                    <action selector="currentLocationButtonClicked:" destination="6Ae-xT-459" eventType="touchUpInside" id="03p-OK-MyM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="npb-Ug-2oP"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6iH-ew-ukS" firstAttribute="top" secondItem="npb-Ug-2oP" secondAttribute="top" id="EEZ-2P-ydk"/>
                             <constraint firstItem="npb-Ug-2oP" firstAttribute="bottom" secondItem="6iH-ew-ukS" secondAttribute="bottom" id="FEu-Kg-Mwe"/>
+                            <constraint firstItem="ylC-jw-XgG" firstAttribute="leading" secondItem="npb-Ug-2oP" secondAttribute="leading" constant="42" id="e4B-VJ-4mm"/>
                             <constraint firstItem="npb-Ug-2oP" firstAttribute="trailing" secondItem="6iH-ew-ukS" secondAttribute="trailing" id="mhH-w6-ZZ9"/>
                             <constraint firstItem="6iH-ew-ukS" firstAttribute="leading" secondItem="npb-Ug-2oP" secondAttribute="leading" id="sco-3M-3uE"/>
+                            <constraint firstItem="npb-Ug-2oP" firstAttribute="bottom" secondItem="ylC-jw-XgG" secondAttribute="bottom" constant="42" id="yLl-0y-llh"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="5uw-uP-ekC"/>
                     <connections>
+                        <outlet property="currentLocationButton" destination="ylC-jw-XgG" id="dSG-KK-GxH"/>
                         <outlet property="mapView" destination="6iH-ew-ukS" id="LW9-eP-sWR"/>
                     </connections>
                 </viewController>

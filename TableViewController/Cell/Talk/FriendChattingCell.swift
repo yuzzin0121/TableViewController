@@ -46,8 +46,8 @@ class FriendChattingCell: UITableViewCell, TableViewCellProtocol {
     
     func configureCell(item: Any) {
         let chat = item as! Chat
-        friendProfileImageView.image = UIImage(named: chat.user.profileImage)
-        friendNameLabel.text = chat.user.rawValue
+        friendProfileImageView.image = UIImage(named: chat.user!.profileImage)
+        friendNameLabel.text = chat.user!.rawValue
         friendMessageLabel.text = chat.message
         messageDateLabel.text = chat.messageDateString
     }

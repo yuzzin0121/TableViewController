@@ -15,10 +15,12 @@ class ChattingViewController: UIViewController {
     let messageTextViewPlaceholder = "메시지를 입력하세요"
     @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         configureView()
+//        setDate()
         configureTableView()
         designTextView(messageTextView)
         scrollToBottom()
@@ -39,6 +41,21 @@ class ChattingViewController: UIViewController {
 //        let frameSize = chattingTableView.frame.size.height
 //        return contentSize - frameSize
 //    }
+    
+    func setDate() {
+        print("----------")
+        for index in 0...chatRoom.chatList.count - 2 {
+            let currentDate = String.stringToDate(date: chatRoom.chatList[index].date)
+            let nextDate = String.stringToDate(date: chatRoom.chatList[index + 1].date)
+            print("current: \(currentDate) , next: \(nextDate)")
+            if Date.isSameDate(self: currentDate, as: nextDate) == false {
+                let divisionDate = Chat(user: nil, date: Date.dateToString(date: Date.getNextDate(current: currentDate)), message: nil)
+                chatRoom.chatList.insert(divisionDate, at: index+1)
+                chattingTableView.reloadData()
+            }
+        }
+        print("----------")
+    }
 }
 
 extension ChattingViewController: ViewProtocol {
@@ -71,9 +88,11 @@ extension ChattingViewController: ViewProtocol {
         let FriendChattingNib = UINib(nibName: FriendChattingCell.identifier, bundle: nil)
     
         let MyChattingNib = UINib(nibName: MyChattingCell.identifier, bundle: nil)
+        let dateNib = UINib(nibName: DateTableViewCell.identifier, bundle: nil)
         
         chattingTableView.register(FriendChattingNib, forCellReuseIdentifier: FriendChattingCell.identifier)
         chattingTableView.register(MyChattingNib, forCellReuseIdentifier: MyChattingCell.identifier)
+        chattingTableView.register(dateNib, forCellReuseIdentifier: DateTableViewCell.identifier)
     }
     
     func changeTextViewHeight(_ height: CGFloat, multi: CGFloat) {
@@ -92,18 +111,28 @@ extension ChattingViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+       
         if chatRoom.chatList[indexPath.row].user == .user {
             let cell = tableView.dequeueReusableCell(withIdentifier: MyChattingCell.identifier, for: indexPath) as! MyChattingCell
             
             cell.selectionStyle = .none
             cell.configureCell(item: chatRoom.chatList[indexPath.row])
             return cell
-        } else {
+        } else if chatRoom.chatList[indexPath.row].user != nil{
             let cell = tableView.dequeueReusableCell(withIdentifier: FriendChattingCell.identifier, for: indexPath) as! FriendChattingCell
             
             cell.selectionStyle = .none
             cell.configureCell(item: chatRoom.chatList[indexPath.row])
             return cell
+        } else if chatRoom.chatList[indexPath.row].user == nil{
+            let cell = tableView.dequeueReusableCell(withIdentifier: DateTableViewCell.identifier, for: indexPath) as! DateTableViewCell
+            
+            cell.selectionStyle = .none
+            cell.configureCell(item: chatRoom.chatList[indexPath.row])
+            return cell
+        }
+        else {
+            return UITableViewCell()
         }
     }
     
