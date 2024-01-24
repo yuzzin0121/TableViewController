@@ -102,23 +102,9 @@ class TheaterMapViewController: UIViewController, ViewProtocol {
     
     // 액션시트 띄우기 (메가박스, 롯데시네마, CGV, 전체보기)
     @objc func alertActionSheet() {
-        let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
-        [UIAlertAction(title: TheaterName.Mega.rawValue, style: .default) { _ in
-            self.setTheaterName(.Mega)
-        },
-         UIAlertAction(title: TheaterName.Lotte.rawValue, style: .default) { _ in
-            self.setTheaterName(.Lotte)
-         },
-         UIAlertAction(title: TheaterName.CGV.rawValue, style: .default) { _ in
-            self.setTheaterName(.CGV)
-        },
-         UIAlertAction(title: TheaterName.total.rawValue, style: .default) { _ in
-            self.setTheaterName(.total)
-        }].forEach {
-            alert.addAction($0)
+        showTheaterActionSheet { theaterName in
+            self.setTheaterName(theaterName)
         }
-        present(alert, animated: true)
     }
     
     // 영화관 이름 선택하기
